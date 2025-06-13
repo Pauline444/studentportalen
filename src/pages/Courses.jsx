@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { courses } from '../data/courses'
+import AppliedCourseCard from '../components/AppliedCourseCard'
 
 export default function Courses() {
     const [selectedCategory, setSelectedCategory] = useState('Alla')
@@ -73,7 +74,7 @@ export default function Courses() {
                                         </span>
                                     </div>
 
-                                    <h5 className="card-title">{course.name}</h5>
+                                    <h3 className="card-title">{course.name}</h3>
                                     <p className="card-text text-muted">{course.shortDescription}</p>
 
                                     <div className="mt-auto">
@@ -102,6 +103,9 @@ export default function Courses() {
                         </div>
                     ))
                 )}
+            </div>
+            <div className="col-12">
+                <AppliedCourseCard />
             </div>
         </div>
     )

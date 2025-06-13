@@ -1,42 +1,47 @@
-// context/CourseContext.jsx
 /* eslint-disable react-refresh/only-export-components */
-import React, { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
-// Skapa Context
 const CourseContext = createContext();
 
-// Provider komponent
-export function CourseProvider({ children }) {
+export const CourseProvider = ({ children }) => {
     const [applications, setApplications] = useState([]);
 
-    // Lägg till ny ansökan
+    // Ladda ansökningar från localStorage när sidan laddas
+    useEffect(() => {
+        const stored = localStorage.getItem('applications');
+        if (stored) {
+            setApplications(JSON.parse(stored));
+        }
+    }, []);
+
+    // Spara till localStorage när ansökningar ändras
+    useEffect(() => {
+        localStorage.setItem('applications', JSON.stringify(applications));
+    }, [applications]);
+
     const addApplication = (application) => {
         setApplications(prev => [...prev, application]);
     };
 
-    // Kontrollera om det finns ansökningar
+    const removeApplication = (id) => {
+        setApplications(prev => prev.filter(app => app.id !== id));
+    };
+
     const hasApplications = () => applications.length > 0;
 
-    // Antal ansökningar
     const getApplicationCount = () => applications.length;
 
     return (
         <CourseContext.Provider value={{
             applications,
             addApplication,
+            removeApplication,
             hasApplications,
             getApplicationCount
         }}>
             {children}
         </CourseContext.Provider>
     );
-}
+};
 
-// Hook för att använda Context
-export function useCourses() {
-    const context = useContext(CourseContext);
-    if (!context) {
-        throw new Error('useCourses måste användas inom CourseProvider');
-    }
-    return context;
-}
+export const useCourses = () => useContext(CourseContext);

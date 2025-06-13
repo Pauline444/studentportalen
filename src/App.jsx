@@ -7,7 +7,6 @@ import CourseDetail from './pages/CourseDetail'
 import News from './pages/News'
 import Register from './pages/Register'
 import { CourseProvider } from './context/CourseContext';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 
 export default function App() {

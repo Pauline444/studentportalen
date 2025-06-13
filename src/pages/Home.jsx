@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home() {
     return (
@@ -7,7 +6,7 @@ export default function Home() {
             <div className="row mb-5">
                 <div className="col-12">
                     <div className="jumbotron bg-indigo text-white p-5 rounded">
-                        <h1 className="display-4">Välkommen till StudentPortal!</h1>
+                        <h1 className="display-4">Välkommen till Aurora Akademin´s StudentPortal!</h1>
                         <p className="lead">
                             Din plattform för att upptäcka kurser, läsa de senaste nyheterna och
                             registrera dig för dina favoritkurser.
@@ -15,6 +14,13 @@ export default function Home() {
                         <Link className="btn btn-light btn-lg" to="/courses" role="button">
                             Utforska Kurser
                         </Link>
+                    </div>
+                </div>
+            </div>
+            <div className="col-lg-12 col-md-8 mb-4">
+                <div className="card w-100 shadow-sm mb-5">
+                    <div className="card-body d-flex flex-column">
+                        <img src="https://images.pexels.com/photos/2881370/pexels-photo-2881370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Fotograf: https://www.pexels.com/sv-se/@kelly-1179532/" />
                     </div>
                 </div>
             </div>
@@ -79,6 +85,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
+
 
             {/* Featured Courses Preview */}
             <div className="row mb-5">

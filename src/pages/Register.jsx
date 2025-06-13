@@ -1,4 +1,3 @@
-// pages/Application.jsx
 import React, { useState } from 'react';
 import {
     TextField,
@@ -9,6 +8,7 @@ import {
 } from '@mui/material';
 import { courses } from '../data/courses'
 import { useCourses } from '../context/CourseContext'
+import AppliedCourseCard from '../components/AppliedCourseCard'
 
 
 
@@ -18,7 +18,6 @@ export default function Register() {
     const [course, setCourse] = useState('');
 
     const { addApplication } = useCourses();
-    const { applications, getApplicationCount } = useCourses();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -48,9 +47,9 @@ export default function Register() {
         <div>
             <div className="row">
                 <div className="col-12 jumbotron text-white p-5">
-                    <h1 className="display-4 mb-2">Ansökning</h1>
+                    <h1 className="display-4 mb-2">Ansöknings formulär</h1>
                     <p className="lead">
-                        Skicka in din ansökan till en av våra kurser inom Spiritualism
+                        Skicka in din ansökan till en av våra kurser inom Spiritualism och låt en helt ny värld öppna sig för dig
                     </p>
                 </div>
             </div>
@@ -114,20 +113,8 @@ export default function Register() {
                     </Box>
                 </div>
             </div>
-            <div className="card align-items-center mt-5">
-                <div className="col-md-6">
-                    <Box sx={{ padding: 3 }}>
-                        <Typography variant="h4" gutterBottom>
-                            Sökta kurser
-                        </Typography>
-                        <Typography variant="p" gutterBottom>
-                            Antal ansökningar: {getApplicationCount()}
-                        </Typography>
-                        <Typography variant="h6" gutterBottom>
-                            Alla ansökningar: {applications}
-                        </Typography>
-                    </Box>
-                </div>
+            <div className="align-items-center mt-5">
+                <AppliedCourseCard />
             </div>
         </div>
     );
