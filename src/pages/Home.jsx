@@ -17,13 +17,7 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className="col-lg-12 col-md-8 mb-4">
-                <div className="card w-100 shadow-sm mb-5">
-                    <div className="card-body d-flex flex-column">
-                        <img src="https://images.pexels.com/photos/2881370/pexels-photo-2881370.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Fotograf: https://www.pexels.com/sv-se/@kelly-1179532/" />
-                    </div>
-                </div>
-            </div>
+
             {/* Navigation Cards */}
             <div className="row mb-5">
                 <div className="col-md-6 mb-4">

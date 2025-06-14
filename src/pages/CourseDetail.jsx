@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../index.css'
 import { useParams } from 'react-router-dom';
 import courses from '../data/courses';
 import { Link } from 'react-router-dom';
@@ -21,7 +22,7 @@ export default function CourseDetail() {
                 </p>
             </div>
             <div className='card h-100 shadow-sm'>
-                <div className="card-body d-flex flex-column p-5">
+                <div className="card-body d-flex flex-column p-3 p-md-5">
                     <div className="mb-2">
                         <span className="badge bg-secondary">
                             {course.category}
@@ -60,7 +61,7 @@ export default function CourseDetail() {
                                         Ansök Här
                                     </Link>
                                     <Link to="/courses" className="btn btn-outline-primary btn-lg">
-                                        Bläddra Kurser
+                                        Kursutbud
                                     </Link>
                                 </div>
                             </div>

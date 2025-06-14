@@ -21,7 +21,7 @@ export default function Navbar() {
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav nav-underline d-flex align-items-center justify-content-md-end w-100">
+                    <ul className="navbar-nav d-flex align-items-center justify-content-md-end w-100">
                         <li className="nav-item">
                             <Link className="nav-link" to="/">Hem</Link>
                         </li>

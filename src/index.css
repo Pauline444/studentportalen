@@ -24,3 +24,10 @@
   background-color: #141414;
   width: 100vw;
 }
+
+
+@media (width: 650px) {
+  .btn {
+    margin-bottom: 10px;
+  }
+}

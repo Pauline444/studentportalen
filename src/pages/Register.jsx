@@ -25,21 +25,18 @@ export default function Register() {
         // Kontrollera att alla fält är ifyllda
         if (name && email && course) {
             // Lägg till ansökan
+            const selectedCourse = courses.find(c => c.name === course.name);
+
             addApplication({
-                name: name,
-                email: email,
-                course: course,
-                id: Date.now() // Enkel ID
+                name,
+                email,
+                course: selectedCourse,
+                id: Date.now()
             });
 
-            // Rensa formuläret
             setName('');
             setEmail('');
             setCourse('');
-
-            alert('Ansökan skickad!');
-        } else {
-            alert('Fyll i alla fält');
         }
     };
 
@@ -87,14 +84,17 @@ export default function Register() {
                                 fullWidth
                                 select
                                 label="Välj kurs"
-                                value={course}
-                                onChange={(e) => setCourse(e.target.value)}
+                                value={course ? course.name : ''}
+                                onChange={(e) => {
+                                    const selected = courses.find(c => c.name === e.target.value);
+                                    setCourse(selected);
+                                }}
                                 margin="normal"
                                 required
                             >
-                                {courses.map((courseName) => (
-                                    <MenuItem key={courseName} value={courseName}>
-                                        {courseName.name}
+                                {courses.map((c) => (
+                                    <MenuItem key={c.name} value={c.name}>
+                                        {c.name}
                                     </MenuItem>
                                 ))}
                             </TextField>

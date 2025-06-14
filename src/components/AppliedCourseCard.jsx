@@ -20,7 +20,7 @@ export default function AppliedCoursesList() {
                             Ansök Här
                         </Link>
                         <Link to="/courses" className="btn btn-primary btn-lg me-3">
-                            Bläddra Kurser
+                            Kursutbud
                         </Link>
                     </div>
                 ) : (
@@ -28,11 +28,17 @@ export default function AppliedCoursesList() {
                         {applications.map((app) => (
                             <li
                                 key={app.id}
-                                className="list-group-item d-flex justify-content-between align-items-center"
+                                className="list-group-item d-flex justify-content-between align-items-center p-4"
                             >
-                                <div>
-                                    <strong>{app.course.name}</strong><br />
-                                    {app.name} – {app.email}
+                                <div className="list-item">
+                                    <h4>{app.course.name}</h4>
+                                    {app.course.shortDescription}<br />
+                                    <strong>start datum: {app.course.startDate}</strong>
+                                </div>
+                                <div className="list-item">
+                                    <small>Dina uppgifter:</small><br />
+                                    {app.name}<br />
+                                    {app.email}
                                 </div>
                                 <button
                                     className="btn btn-outline-danger btn-sm"
